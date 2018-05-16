@@ -206,9 +206,9 @@ k8s_18_cherry_pick() {
 				# From 1.8.11, 2704ef877b conflict with reverting a418057ddd. We skip it since it is test file
 				git revert --no-edit 2704ef877b || true
 				# From 1.8.11, dc21ebe936 conflict with reverting 63b4f60e43. We use 18589971f7 in Azure repo instead of dc21ebe936
-				git revert --no-edit dc21ebe936 || true
+				 #git revert --no-edit dc21ebe936 || true
 				# From 1.8.11, a418057ddd conflict with reverting 63b4f60e43. We use 57038dce90 in Azure repo instead of a418057ddd
-				git revert --no-edit a418057ddd || true
+				#git revert --no-edit a418057ddd || true
 				# From 1.8.11, beaca32611 conflict with reverting 63b4f60e43. We use e6d8af84df in Azure repo instead of beaca32611
 				git revert --no-edit beaca32611 || true
 			fi
@@ -216,9 +216,9 @@ k8s_18_cherry_pick() {
 			git revert --no-edit 5936faed37 || true
 		fi
 		# From 1.8.9, 63b4f60e43 conflict with b42981f90b. We use 6a8305e419 in Azure repo instead of 63b4f60e43
-		git revert --no-edit 63b4f60e43 || true
+		#git revert --no-edit 63b4f60e43 || true
 		# From 1.8.9, 40d5e0a34f conflict with 6a8305e419. We use b90d61a48c in Azure repo instead of 40d5e0a34f
-		git revert --no-edit 40d5e0a34f || true
+		#git revert --no-edit 40d5e0a34f || true
 	fi
 
 	git cherry-pick --allow-empty --keep-redundant-commits 69644018c8^..8d477271f7
@@ -233,9 +233,9 @@ k8s_18_cherry_pick() {
 	if version_ge "${version}" "1.8.9"; then
 		echo "version 1.8.9 and after..."
 		# From 1.8.9, 63b4f60e43 conflict with b42981f90b. We use 6a8305e419 in Azure repo instead of 63b4f60e43
-		git cherry-pick --allow-empty --keep-redundant-commits 6a8305e419
+		#git cherry-pick --allow-empty --keep-redundant-commits 6a8305e419
 		# From 1.8.9, 40d5e0a34f conflict with 6a8305e419. We use b90d61a48c in Azure repo instead of 40d5e0a34f
-		git cherry-pick --allow-empty --keep-redundant-commits b90d61a48c
+		#git cherry-pick --allow-empty --keep-redundant-commits b90d61a48c
 		if version_ge "${version}" "1.8.10"; then
 			echo "version 1.8.10 and after..."
 			# From 1.8.10, 5936faed37 conflict with reverting 63b4f60e43. We use 1f26b7a083 in Azure repo instead of 5936faed37
@@ -246,7 +246,7 @@ k8s_18_cherry_pick() {
 				# From 1.8.11, dc21ebe936 conflict with reverting 63b4f60e43. We use 18589971f7 in Azure repo instead of dc21ebe936
 				# From 1.8.11, a418057ddd conflict with reverting 63b4f60e43. We use 57038dce90 in Azure repo instead of a418057ddd
 				# From 1.8.11, beaca32611 conflict with reverting 63b4f60e43. We use e6d8af84df in Azure repo instead of beaca32611
-				git cherry-pick --allow-empty --keep-redundant-commits 8e081d5da9^..18589971f7
+				git cherry-pick --allow-empty --keep-redundant-commits 8e081d5da9^..e6d8af84df
 			fi
 		fi
 	fi
